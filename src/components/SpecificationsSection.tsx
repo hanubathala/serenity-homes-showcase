@@ -1,241 +1,227 @@
 import {
-  Building2,
-  DoorOpen,
-  Palette,
-  Lamp,
-  Layers,
-  Grid2X2,
-  UtensilsCrossed,
-  Bath,
-  Zap,
-  Wind,
-  Phone,
-  Radio,
-  Wifi,
-  ArrowUp,
-  Droplets,
-  Shield,
-  Flame,
-} from "lucide-react";
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Bath,
+  BedDouble,
+  Building2,
+  CookingPot,
+  DoorOpen,
+  Droplets,
+  Flame,
+  Home,
+  Paintbrush,
+  Sofa,
+  Sparkles,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 
 type SpecSection = {
   title: string;
-  icon: React.ReactNode;
+  icon: LucideIcon;
   items: string[];
 };
 
 const specSections: SpecSection[] = [
   {
-    title: "Super Structure",
-    icon: <Building2 size={24} />,
+    title: "Structure",
+    icon: Building2,
     items: [
-      "R.C.C. framed structure to withstand wind and seismic (Zone II) loads.",
-      "Walls: reinforced shear walls and/or cement concrete blocks.",
+      "Super Structure: RCC shear wall structure system, engineered for wind and seismic loads as per relevant IS codes.",
+      "RCC non-structural walls/block masonry as per design.",
+      "Floor Height: 3.60 m (from FFL to FFL).",
     ],
   },
   {
-    title: "Doors and Windows",
-    icon: <DoorOpen size={24} />,
+    title: "Joinery",
+    icon: DoorOpen,
     items: [
       "Main door: teak wood frame with veneered flush shutter, melamine polish, and reputed hardware.",
       "Internal doors: hard wood frame with veneered flush shutter, melamine polish, and reputed hardware.",
-      "Toilet/utility doors: granite frame with veneered/laminate flush shutter, melamine polish, and reputed hardware.",
-      "Sliding door: UPVC/bronze anodised aluminium alloy frame with clear float glass panelled sliding shutters and reputed hardware.",
-      "Windows: UPVC/bronze anodised aluminium alloy window system with clear float glass, suitable finishes as per design, and mosquito mesh track.",
-      "Grills: aesthetically designed mild steel (MS) grills with enamel paint finish.",
+      "Windows and sliding doors: UPVC/aluminium systems with clear float glass and mosquito mesh track.",
     ],
   },
   {
-    title: "Wall Finishes",
-    icon: <Palette size={24} />,
+    title: "Master Bedroom & Closet",
+    icon: BedDouble,
     items: [
-      "External: textured/smooth finish with two coats of exterior emulsion paint of reputed make.",
-      "Internal: smooth putty finish with two coats of premium acrylic emulsion paint over a coat of primer.",
+      "Imported marble/vitrified flooring as per tower design intent.",
+      "Smooth putty-finished walls with premium acrylic emulsion over primer.",
+      "Provision for AC unit and bedroom lighting controls.",
     ],
   },
   {
-    title: "Ceiling Finishes",
-    icon: <Lamp size={24} />,
-    items: [
-      "Drawing, dining, living, bedrooms, and kitchen: plain gypsum board false ceiling.",
-      "Toilet/utility: grid ceiling to cover service lines.",
-    ],
-  },
-  {
-    title: "Flooring",
-    icon: <Layers size={24} />,
-    items: [
-      "Blocks B to F - drawing, living, and dining: imported marble flooring.",
-      "Blocks B to F - bedrooms, multipurpose room, and kitchen: 1200 x 600 mm polished glazed vitrified tiles of reputed make.",
-      "Blocks G to K - drawing, living, dining, bedrooms, multipurpose room, and kitchen: imported marble flooring.",
-      "Bathrooms: glazed vitrified tiles of reputed make.",
-      "Staircases: natural stone.",
-      "Corridors: glazed vitrified tiles of reputed make.",
-      "Balconies: glazed vitrified tiles of reputed make (wood finish).",
-      "Utilities: ceramic/vitrified tiles of reputed make.",
-    ],
-  },
-  {
-    title: "Tile Cladding / Dadoing",
-    icon: <Grid2X2 size={24} />,
-    items: [
-      "Kitchen: polished glazed vitrified tiles (PGVT) up to 2 ft height above the kitchen platform.",
-      "Bathrooms: dado up to lintel height using glazed ceramic/vitrified tiles of reputed make.",
-      "Utilities: ceramic tile dado up to 5 ft height.",
-    ],
-  },
-  {
-    title: "Kitchen",
-    icon: <UtensilsCrossed size={24} />,
-    items: [
-      "Granite platform with stainless steel sink.",
-      "Piped LPG gas connection with gas meter.",
-      "Provision for water purifier.",
-    ],
-  },
-  {
-    title: "Bathrooms",
-    icon: <Bath size={24} />,
+    title: "Master Toilet",
+    icon: Bath,
     items: [
       "Countertop vanity wash basin with single-lever mixer.",
-      "EWC with flush valve of Villeroy and Boch.",
-      "Single-lever wall mixer with bath spout and shower of premium brand.",
-      "Provision for geyser in all bathrooms.",
-      "Chrome-plated faucets of premium brand.",
+      "EWC with premium flush valve and CP fittings.",
+      "Provision for geyser and shower mixer.",
     ],
   },
   {
-    title: "Electrical",
-    icon: <Zap size={24} />,
+    title: "Bedrooms Toilet",
+    icon: Droplets,
     items: [
-      "Concealed copper wiring of premium brand.",
-      "Power outlets for geysers in all bathrooms.",
-      "Kitchen power plugs for cooking range and appliances (chimney, refrigerator, microwave oven, mixer/grinder, geyser, and water purifier).",
-      "Power outlets for washing machine and dishwasher in utility area.",
-      "Three-phase supply for each unit with individual prepaid meter.",
-      "Miniature circuit breakers (MCB) of premium brand for distribution boards.",
-      "Modular switches of reputed make.",
-      "Power backup: 100% DG set backup with acoustic enclosure and AMF.",
+      "Glazed vitrified/ceramic tile dado up to lintel height.",
+      "EWC and basin of reputed make with chrome-plated fittings.",
+      "Provision for hot and cold water line connectivity.",
     ],
   },
   {
-    title: "Centralised Air Conditioning",
-    icon: <Wind size={24} />,
+    title: "Balcony & Sitouts",
+    icon: Home,
     items: [
-      "Centralised air conditioning with water-cooled chillers of reputed make.",
-      "FCU/cassette units in each room with individual remotes.",
-      "Prepaid BTU meters for each unit for individual consumption metering.",
-      "Two-hour power backup for air conditioning through thermal storage.",
+      "Anti-skid vitrified/ceramic tile finish with weather-resistant skirting.",
+      "Drainage slopes and rainwater detailing as per design.",
+      "Provision for outdoor lighting points.",
     ],
   },
   {
-    title: "Telecom",
-    icon: <Phone size={24} />,
+    title: "Other Bedrooms",
+    icon: BedDouble,
     items: [
-      "Telephone points in drawing room and master bedroom.",
-      "Intercom facility for all apartments.",
+      "Vitrified/marble flooring as per unit layout.",
+      "Painted walls and gypsum-finished ceiling.",
+      "TV/data and AC provision points in selected bedrooms.",
     ],
   },
   {
-    title: "Cable TV",
-    icon: <Radio size={24} />,
+    title: "Powder Room",
+    icon: Sparkles,
     items: [
-      "Provision for cable TV connection in drawing room, living room, and all bedrooms.",
+      "Premium wash basin and CP fittings with mirror provision.",
+      "Designer wall finish and coordinated sanitary fixtures.",
+      "Exhaust and lighting provision integrated with common controls.",
     ],
   },
   {
-    title: "Internet",
-    icon: <Wifi size={24} />,
+    title: "Dry Kitchen",
+    icon: CookingPot,
     items: [
-      "Wi-Fi internet provision for all apartments.",
+      "Granite counter with stainless steel sink and tile backsplash.",
+      "Provision for water purifier, refrigerator, and chimney.",
+      "Piped LPG connection with meter and safety points.",
     ],
   },
   {
-    title: "Lifts",
-    icon: <ArrowUp size={24} />,
+    title: "Wet Kitchen",
+    icon: Flame,
     items: [
+      "Utility-driven kitchen layout with heavy-duty plumbing and drain lines.",
+      "Dedicated points for hob/chimney and high-load appliances.",
+      "Durable wall and floor finishes suitable for frequent use.",
+    ],
+  },
+  {
+    title: "Utility",
+    icon: Wrench,
+    items: [
+      "Provision for washing machine, dishwasher, and service sink.",
+      "Ceramic/vitrified flooring and tile dado in utility zone.",
+      "Exhaust and electrical points for service equipment.",
+    ],
+  },
+  {
+    title: "MEP Provisions & Amenities (Site / Common Areas)",
+    icon: Paintbrush,
+    items: [
+      "High-speed passenger lifts with rescue device and service lift in each tower.",
+      "Fire safety systems, hydrants, sprinklers, and smoke detectors as per norms.",
+      "Round-the-clock security, CCTV, intercom, and parking management systems.",
       "High-speed automatic passenger lifts with rescue device and V3F for energy efficiency.",
-      "Granite/marble cladding at lift entrance.",
-      "One service lift with V3F for energy efficiency for each tower.",
+      "WTP/STP systems and treated water reuse for landscaping and flushing.",
     ],
   },
   {
-    title: "WTP and STP",
-    icon: <Droplets size={24} />,
+    title: "Drawing / Living / Dining / TV Lounge / Pooja",
+    icon: Sofa,
     items: [
-      "Treated water through an exclusive water softening and purification plant (for bore water), with water meters for each unit.",
-      "Sewage treatment plant of adequate capacity as per norms; treated water reused for landscaping, flushing, and cooling towers.",
-    ],
-  },
-  {
-    title: "Security and BMS",
-    icon: <Shield size={24} />,
-    items: [
-      "Round-the-clock security system.",
-      "Panic button and intercom facility in lifts connected to security.",
-      "Comprehensive security system with cameras at required locations.",
-      "Intelligently designed parking management with signage and equipment at strategic locations.",
-    ],
-  },
-  {
-    title: "Fire and Safety",
-    icon: <Flame size={24} />,
-    items: [
-      "Fire hydrant and fire sprinkler system on all floors and in basements.",
-      "Fire alarms and smoke detectors in all apartments.",
-      "Public address system on all floors and parking areas (basements), with control panel at main security.",
+      "Imported marble/vitrified flooring with elegant skirting and thresholds.",
+      "Gypsum false ceiling with lighting and fan point provisions.",
+      "TV, data, and modular electrical points positioned for flexible furniture layouts.",
     ],
   },
 ];
 
 const SpecificationsSection = () => {
   return (
-    <section id="specifications" className="py-20 md:py-22 px-6 bg-[#fbf7f0]">
-      <div className="container mx-auto">
-        <div className="text-center mb-14">
-          <p className="text-primary tracking-[0.2em] uppercase text-sm font-semibold mb-3">Model House</p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Specifications
+    <section
+      id="specifications"
+      className="relative overflow-hidden bg-[#0b0f17] px-6 py-14 md:py-18"
+    >
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(1200px 600px at 15% -10%, rgba(229,192,106,0.14) 0%, rgba(11,15,23,0) 60%), radial-gradient(900px 520px at 90% 0%, rgba(255,255,255,0.08) 0%, rgba(11,15,23,0) 58%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-48"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(11,15,23,0) 0%, rgba(0,0,0,0.5) 100%)",
+        }}
+      />
+
+      <div className="container relative mx-auto">
+        <div className="mb-8 text-center md:mb-10">
+          <h2 className="font-body text-3xl font-medium uppercase tracking-[0.08em] text-[#e5c06a] md:text-4xl">
+            Specification
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
-            Premium materials, dependable engineering, and thoughtful systems designed for long-term comfort and safety.
-          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-3">
-            {specSections.map((section, index) => (
-              <AccordionItem
-                key={index}
-                value={`spec-${index}`}
-                className="rounded-xl border border-border bg-background px-6 data-[state=open]:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="flex items-center gap-4 py-4 hover:text-primary transition-colors">
-                  <div className="flex items-center gap-4 flex-1 text-left">
-                    <div className="text-primary flex-shrink-0">{section.icon}</div>
-                    <h3 className="font-heading text-xl font-semibold text-foreground">
-                      {section.title}
-                    </h3>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pt-2 pb-4">
-                  <ul className="space-y-2 text-muted-foreground leading-relaxed ml-10">
-                    {section.items.map((item, idx) => (
-                      <li key={idx} className="flex gap-3">
-                        <span className="text-primary flex-shrink-0 mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+        <div className="relative rounded-2xl border border-[#d9b96a33] bg-[#0f141f]/75 p-4 backdrop-blur-sm md:p-6">
+          <div className="absolute -left-6 top-7 hidden h-12 w-1 bg-[#cf2d2d] lg:block" />
+
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="spec-0"
+            className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3"
+          >
+            {specSections.map((section, index) => {
+              const Icon = section.icon;
+
+              return (
+                <AccordionItem
+                  key={index}
+                  value={`spec-${index}`}
+                  className="animate-fade-up overflow-hidden rounded-[8px] border-none bg-transparent"
+                  style={{ animationDelay: `${index * 45}ms` }}
+                >
+                  <AccordionTrigger className="h-auto bg-[#ddb760] px-5 py-4 text-left font-body text-[15px] font-medium uppercase leading-snug tracking-[0.01em] text-[#1f1f1f] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e7c472] hover:shadow-[0_8px_28px_rgba(229,192,106,0.25)] hover:no-underline md:min-h-[66px] md:text-[16px] [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-[#1f1f1f]">
+                    <div className="flex items-center gap-3 pr-3">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1f1f1f1a]">
+                        <Icon className="h-4 w-4" />
+                      </span>
+                      <span>{section.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="bg-[#efefef] px-5 pb-5 pt-3">
+                    <div className="space-y-2 text-sm leading-relaxed text-[#252525] md:text-[15px]">
+                      {section.items.map((item, idx) => (
+                        <p key={idx}>
+                          {item.split(":").length > 1 ? (
+                            <>
+                              <span className="font-semibold">{item.split(":")[0]}:</span>
+                              {item.substring(item.indexOf(":") + 1)}
+                            </>
+                          ) : (
+                            item
+                          )}
+                        </p>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
           </Accordion>
         </div>
       </div>
