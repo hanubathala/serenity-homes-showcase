@@ -9,6 +9,7 @@ import MediaShowcaseSection from "@/components/MediaShowcaseSection";
 import ModelHouseSection from "@/components/ModelHouseSection";
 import GallerySection from "@/components/GallerySection";
 import LocationSection from "@/components/LocationSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ const Index = () => (
     <ModelHouseSection />
     <GallerySection />
     <LocationSection />
+    <FAQSection />
     <ContactSection />
     <Footer />
   </>
