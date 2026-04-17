@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -40,8 +40,8 @@
     --gold-gradient: linear-gradient(135deg, hsl(36, 85%, 55%), hsl(40, 90%, 60%));
     --section-gradient: linear-gradient(180deg, hsl(36, 28%, 97%), hsl(34, 24%, 93%));
 
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Manrope', sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
