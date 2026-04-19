@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import { Reveal } from "@/components/Reveal";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
@@ -22,13 +23,15 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-22 px-6 bg-[#f2eadf] border-t border-[#e1d4c1]">
+    <section id="contact" className="py-20 md:py-22 px-6 overflow-hidden bg-[#f2eadf] border-t border-[#e1d4c1]">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
-          <h2 className="font-heading text-5xl md:text-7xl font-bold text-[#173445] mb-4 leading-[0.95]">Let&apos;s Connect!</h2>
-          <p className="text-[#6b7280] max-w-2xl mx-auto text-lg md:text-2xl leading-relaxed">
-            Whether you need information, wish to connect, or want to explore possibilities, we&apos;re here to help.
-          </p>
+          <Reveal animation="up">
+            <h2 className="font-heading text-5xl md:text-7xl font-bold text-[#173445] mb-4 leading-[0.95]">Let&apos;s Connect!</h2>
+            <p className="text-[#6b7280] max-w-2xl mx-auto text-lg md:text-2xl leading-relaxed">
+              Whether you need information, wish to connect, or want to explore possibilities, we&apos;re here to help.
+            </p>
+          </Reveal>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-16">
@@ -54,33 +57,37 @@ const ContactSection = () => {
               href: "#location",
               featured: false,
             },
-          ].map(({ icon: Icon, title, description, href, featured }) => (
-            <a
-              key={title}
-              href={href}
-              className={`rounded-2xl p-6 text-center shadow-sm border transition-all hover:-translate-y-1 ${
-                featured
-                  ? "bg-[#1f4038] text-white border-[#1f4038]"
-                  : "bg-white text-[#173445] border-[#e5ddd0]"
-              }`}
-            >
-              <div className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${featured ? "bg-white/10" : "bg-[#f4f7f8]"}`}>
-                <Icon size={20} className={featured ? "text-white" : "text-[#173445]"} />
-              </div>
-              <p className="font-semibold text-sm md:text-base mb-2 break-words">{title}</p>
-              <p className={`text-xs leading-relaxed ${featured ? "text-white/80" : "text-[#6b7280]"}`}>{description}</p>
-            </a>
+          ].map(({ icon: Icon, title, description, href, featured }, idx) => (
+            <Reveal key={title} animation="up" delay={idx * 0.1}>
+              <a
+                href={href}
+                className={`block rounded-2xl p-6 text-center shadow-sm border transition-all hover:-translate-y-2 card-lift h-full ${
+                  featured
+                    ? "bg-[#1f4038] text-white border-[#1f4038]"
+                    : "bg-white text-[#173445] border-[#e5ddd0]"
+                }`}
+              >
+                <div className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${featured ? "bg-white/10" : "bg-[#f4f7f8]"}`}>
+                  <Icon size={20} className={featured ? "text-white" : "text-[#173445]"} />
+                </div>
+                <p className="font-semibold text-sm md:text-base mb-2 break-words">{title}</p>
+                <p className={`text-xs leading-relaxed ${featured ? "text-white/80" : "text-[#6b7280]"}`}>{description}</p>
+              </a>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center mb-8">
-          <h3 className="font-heading text-3xl md:text-4xl font-bold text-[#173445] mb-3">Get in Touch</h3>
-          <p className="text-[#6b7280] max-w-xl mx-auto text-sm md:text-base">
-            Should you have any queries, we are here to guide you, offering clarity and support at every step of your journey.
-          </p>
-        </div>
+        <Reveal animation="up" delay={0.1}>
+          <div className="text-center mb-8">
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-[#173445] mb-3">Get in Touch</h3>
+            <p className="text-[#6b7280] max-w-xl mx-auto text-sm md:text-base">
+              Should you have any queries, we are here to guide you, offering clarity and support at every step of your journey.
+            </p>
+          </div>
+        </Reveal>
 
-        <form onSubmit={handleSubmit} className="bg-white border border-[#eadfcd] rounded-2xl shadow-sm p-5 md:p-8 space-y-5">
+        <Reveal animation="scale" delay={0.15}>
+          <form onSubmit={handleSubmit} className="bg-white border border-[#eadfcd] rounded-2xl shadow-sm p-5 md:p-8 space-y-5">
           <div>
             <label className="block text-xs font-semibold text-[#7a5f35] uppercase tracking-[0.18em] mb-2">Name</label>
             <input
@@ -157,6 +164,7 @@ const ContactSection = () => {
             </button>
           </div>
         </form>
+        </Reveal>
       </div>
     </section>
   );

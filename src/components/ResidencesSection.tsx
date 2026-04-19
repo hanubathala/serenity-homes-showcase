@@ -4,6 +4,7 @@ import fp1 from "@/assets/floorplan-option1.png";
 import fp2 from "@/assets/floorplan-units1.png";
 import fp3 from "@/assets/floorplan-option2.png";
 import fp4 from "@/assets/floorplan-units2.png";
+import { Reveal } from "@/components/Reveal";
 
 type ResidenceOption = {
   id: string;
@@ -73,12 +74,15 @@ const ResidencesSection = () => {
   };
 
   return (
-    <section id="residences" className="py-20 md:py-22 px-6 bg-[#efe7db]">
+    <section id="residences" className="py-20 md:py-22 px-6 overflow-hidden bg-[#efe7db]">
       <div className="container mx-auto max-w-6xl">
-        <div style={{ textAlign: "center", marginBottom: "2rem", fontSize: "1.5rem", fontWeight: "bold" }}>SWASTI SRI SERENITY Price</div>
+        <Reveal animation="up">
+          <div style={{ textAlign: "center", marginBottom: "2rem", fontSize: "1.5rem", fontWeight: "bold" }}>SWASTI SRI SERENITY Price</div>
+        </Reveal>
         <div className="grid lg:grid-cols-[1fr_1.05fr] gap-8 lg:gap-10 items-start">
-          <div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#1f2937] mb-8">All Residences</h2>
+          <Reveal animation="left">
+            <div>
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#1f2937] mb-8">All Residences</h2>
 
             <div className="grid grid-cols-2 gap-3 mb-3">
               {(["1.5", "2.5"] as const).map((bhk) => (
@@ -137,8 +141,10 @@ const ResidencesSection = () => {
               <CircleArrowRight size={22} />
             </button>
           </div>
+          </Reveal>
 
-          <div>
+          <Reveal animation="right" delay={0.1}>
+            <div>
             <h3 className="font-body text-3xl font-bold text-[#1f2937] mb-2 uppercase">
               {selectedBhk} BHK - {selectedFacing} Facing
             </h3>
@@ -151,7 +157,8 @@ const ResidencesSection = () => {
                 loading="lazy"
               />
             </div>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

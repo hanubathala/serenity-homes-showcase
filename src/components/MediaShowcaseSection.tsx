@@ -1,26 +1,29 @@
 import { useState } from "react";
 import fp1 from "@/assets/floorplan-option1.png";
 import LightBox from "./LightBox";
+import { Reveal } from "@/components/Reveal";
 
 const MediaShowcaseSection = () => {
   const [lightBoxOpen, setLightBoxOpen] = useState(false);
 
   return (
     <>
-      <section id="showcase" className="py-20 md:py-22 px-6" style={{ background: "var(--section-gradient)" }}>
+      <section id="showcase" className="py-20 md:py-22 px-6 overflow-hidden" style={{ background: "var(--section-gradient)" }}>
         <div className="container mx-auto">
       <div className="text-center mb-14">
-        <p className="text-primary tracking-[0.2em] uppercase text-sm font-semibold mb-3">Project Showcase</p>
-        <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-          Master Plan and Video Tour
-        </h2>
-        <p className="text-muted-foreground max-w-3xl mx-auto">
-          Explore the full community layout and preview the project through a guided video walkthrough.
-        </p>
+        <Reveal animation="up">
+          <p className="text-primary tracking-[0.2em] uppercase text-sm font-semibold mb-3">Project Showcase</p>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Master Plan and Video Tour
+          </h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            Explore the full community layout and preview the project through a guided video walkthrough.
+          </p>
+        </Reveal>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-        <article className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
+        <Reveal animation="left" delay={0.1} as="article" className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
           <div className="p-6 border-b border-border">
             <h3 className="font-heading text-3xl text-foreground">Master Plan View</h3>
             <p className="text-muted-foreground mt-2">
@@ -34,9 +37,9 @@ const MediaShowcaseSection = () => {
             loading="lazy"
             onClick={() => setLightBoxOpen(true)}
           />
-        </article>
+        </Reveal>
 
-        <article className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
+        <Reveal animation="right" delay={0.15} as="article" className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
           <div className="p-6 border-b border-border">
             <h3 className="font-heading text-3xl text-foreground">Video Walkthrough</h3>
             <p className="text-muted-foreground mt-2">
@@ -54,7 +57,7 @@ const MediaShowcaseSection = () => {
               Your browser does not support embedded videos.
             </video>
           </div>
-        </article>
+        </Reveal>
       </div>
         </div>
       </section>

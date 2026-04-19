@@ -6,6 +6,7 @@ import g4 from "@/assets/gallery-4.jpg";
 import amenities from "@/assets/amenities-bg.jpg";
 import hero from "@/assets/hero-bg.jpg";
 import LightBox from "./LightBox";
+import { Reveal } from "@/components/Reveal";
 
 const images = [
   { src: hero, alt: "Exterior view", label: "Grand Elevation", span: "md:col-span-2" },
@@ -35,21 +36,29 @@ const GallerySection = () => {
 
   return (
     <>
-      <section id="gallery" className="py-20 md:py-22 px-6 bg-[#f7f1e8]">
+      <section id="gallery" className="py-20 md:py-22 px-6 overflow-hidden bg-[#f7f1e8]">
         <div className="container mx-auto text-center">
-          <p className="text-primary tracking-[0.2em] uppercase text-sm font-semibold mb-3">Gallery</p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-            A Glimpse of Luxury
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
-            Experience the beauty and elegance of Swasti Sri Serenity. Click on any image to expand.
-          </p>
+          <Reveal animation="up">
+            <p className="text-primary tracking-[0.2em] uppercase text-sm font-semibold mb-3">Gallery</p>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
+              A Glimpse of Luxury
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
+              Experience the beauty and elegance of Swasti Sri Serenity. Click on any image to expand.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {images.map((img, i) => (
-              <div
+              <Reveal
                 key={i}
-                onClick={() => handleImageClick(i)}
+                animation="scale"
+                delay={i * 0.08}
                 className={`relative overflow-hidden rounded-2xl group border border-border/70 shadow-sm cursor-pointer ${img.span || ""}`}
+                as="div"
+              >
+              <div
+                onClick={() => handleImageClick(i)}
+                className="h-full"
               >
                 <img
                   src={img.src}
@@ -67,6 +76,7 @@ const GallerySection = () => {
                   </p>
                 </div>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

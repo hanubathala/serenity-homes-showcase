@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Reveal } from "@/components/Reveal";
 import {
   Bath,
   BedDouble,
@@ -171,12 +172,15 @@ const SpecificationsSection = () => {
 
       <div className="container relative mx-auto">
         <div className="mb-8 text-center md:mb-10">
-          <h2 className="font-body text-3xl font-medium uppercase tracking-[0.08em] text-[#e5c06a] md:text-4xl">
-            Specification
-          </h2>
+          <Reveal animation="up">
+            <h2 className="font-body text-3xl font-medium uppercase tracking-[0.08em] text-[#e5c06a] md:text-4xl">
+              Specification
+            </h2>
+          </Reveal>
         </div>
 
-        <div className="relative rounded-2xl border border-[#d9b96a33] bg-[#0f141f]/75 p-4 backdrop-blur-sm md:p-6">
+        <Reveal animation="up" delay={0.1}>
+          <div className="relative rounded-2xl border border-[#d9b96a33] bg-[#0f141f]/75 p-4 backdrop-blur-sm md:p-6">
           <div className="absolute -left-6 top-7 hidden h-12 w-1 bg-[#cf2d2d] lg:block" />
 
           <Accordion
@@ -192,8 +196,7 @@ const SpecificationsSection = () => {
                 <AccordionItem
                   key={index}
                   value={`spec-${index}`}
-                  className="animate-fade-up overflow-hidden rounded-[8px] border-none bg-transparent"
-                  style={{ animationDelay: `${index * 45}ms` }}
+                  className="overflow-hidden rounded-[8px] border-none bg-transparent"
                 >
                   <AccordionTrigger className="h-auto bg-[#ddb760] px-5 py-4 text-left font-body text-[15px] font-medium uppercase leading-snug tracking-[0.01em] text-[#1f1f1f] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e7c472] hover:shadow-[0_8px_28px_rgba(229,192,106,0.25)] hover:no-underline md:min-h-[66px] md:text-[16px] [&>svg]:h-4 [&>svg]:w-4 [&>svg]:text-[#1f1f1f]">
                     <div className="flex items-center gap-3 pr-3">
@@ -224,6 +227,7 @@ const SpecificationsSection = () => {
             })}
           </Accordion>
         </div>
+        </Reveal>
       </div>
     </section>
   );
