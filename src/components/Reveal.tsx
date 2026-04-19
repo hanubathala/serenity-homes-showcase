@@ -67,14 +67,14 @@ export function RevealGroup({
   className,
   itemClassName,
   as: Tag = "div",
-  itemAs = "div",
+  itemAs: ItemTag = "div",
 }: RevealGroupProps) {
   const { ref, isVisible } = useInView<HTMLDivElement>({ threshold: 0.08 });
 
   return (
     <Tag ref={ref} className={className}>
       {children.map((child, i) => (
-        <itemAs
+        <ItemTag
           key={i}
           className={cn(
             "reveal",
@@ -85,7 +85,7 @@ export function RevealGroup({
           style={{ transitionDelay: isVisible ? `${baseDelay + i * stagger}s` : "0s" }}
         >
           {child}
-        </itemAs>
+        </ItemTag>
       ))}
     </Tag>
   );
