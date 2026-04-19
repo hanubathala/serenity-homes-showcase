@@ -61,7 +61,7 @@ const ChatWidget = () => {
       >
         {open ? <X size={22} /> : <MessageCircle size={24} />}
         {!open && (
-          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-background animate-pulse" />
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[hsl(142_70%_45%)] border-2 border-background animate-pulse" />
         )}
       </button>
 
@@ -77,7 +77,7 @@ const ChatWidget = () => {
               <div>
                 <p className="font-semibold leading-tight">Serenity Assistant</p>
                 <p className="text-xs opacity-90 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="w-2 h-2 rounded-full bg-[hsl(142_70%_55%)]" />
                   Online · Replies instantly
                 </p>
               </div>
