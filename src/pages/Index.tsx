@@ -15,6 +15,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ChatWidget from "@/components/ChatWidget";
+import CursorGlow from "@/components/CursorGlow";
 
 const Index = () => (
   <>
@@ -35,6 +36,7 @@ const Index = () => (
     <Footer />
     <ScrollToTop />
     <ChatWidget />
+    <CursorGlow />
   </>
 );
 
