@@ -74,89 +74,103 @@ const ResidencesSection = () => {
   };
 
   return (
-    <section id="residences" className="py-20 md:py-22 px-6 overflow-hidden bg-[#efe7db]">
+    <section
+      id="residences"
+      className="py-20 md:py-22 px-6 overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(900px 420px at 0% 0%, rgba(158,120,89,0.16), transparent 60%), radial-gradient(900px 420px at 100% 100%, rgba(28,77,68,0.16), transparent 60%), linear-gradient(180deg, #f7f1e8 0%, #efe4d4 100%)",
+      }}
+    >
       <div className="container mx-auto max-w-6xl">
         <Reveal animation="up">
-          <div style={{ textAlign: "center", marginBottom: "2rem", fontSize: "1.5rem", fontWeight: "bold" }}>SWASTI SRI SERENITY Price</div>
+          <div className="text-center mb-12">
+            <p className="text-[#8d5d3d] tracking-[0.25em] uppercase text-xs md:text-sm font-semibold mb-3">Pricing Matrix</p>
+            <h2 className="font-heading text-4xl md:text-6xl font-bold text-[#203137] mb-3">All Residences</h2>
+            <p className="text-[#4a5b60] text-base md:text-lg">Choose your preferred configuration, orientation, and area option.</p>
+          </div>
         </Reveal>
+
         <div className="grid lg:grid-cols-[1fr_1.05fr] gap-8 lg:gap-10 items-start">
           <Reveal animation="left">
-            <div>
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-[#1f2937] mb-8">All Residences</h2>
+            <div className="rounded-3xl border border-[#d8c7b2] bg-[#fffaf3]/90 backdrop-blur-sm p-5 md:p-7 shadow-[0_18px_55px_-28px_rgba(43,49,64,0.45)]">
+              <h3 className="font-heading text-3xl md:text-4xl font-bold text-[#203137] mb-6">Select Your Unit</h3>
 
-            <div className="grid grid-cols-2 gap-3 mb-3">
-              {(["1.5", "2.5"] as const).map((bhk) => (
-                <button
-                  key={bhk}
-                  onClick={() => onChangeBhk(bhk)}
-                  className={`h-12 rounded-md text-sm md:text-base font-semibold transition-colors ${
-                    selectedBhk === bhk
-                      ? "bg-[#0f172a] text-white"
-                      : "bg-white text-[#1f2937] border border-[#cfd4dc] hover:bg-[#f8fbff]"
-                  }`}
-                >
-                  {bhk} BHK
-                </button>
-              ))}
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                {(["1.5", "2.5"] as const).map((bhk) => (
+                  <button
+                    key={bhk}
+                    onClick={() => onChangeBhk(bhk)}
+                    className={`h-12 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 ${
+                      selectedBhk === bhk
+                        ? "bg-[#203137] text-white shadow-[0_12px_28px_-16px_rgba(32,49,55,0.9)]"
+                        : "bg-[#f8efe4] text-[#2f4146] border border-[#d9c7b3] hover:bg-white"
+                    }`}
+                  >
+                    {bhk} BHK
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {(["East", "West"] as const).map((facing) => (
+                  <button
+                    key={facing}
+                    onClick={() => onChangeFacing(facing)}
+                    className={`h-11 rounded-xl text-sm md:text-base font-semibold transition-all duration-300 ${
+                      selectedFacing === facing
+                        ? "bg-[#b56d42] text-white shadow-[0_12px_28px_-16px_rgba(181,109,66,0.95)]"
+                        : "bg-white text-[#2f4146] border border-[#d9c7b3] hover:bg-[#fff5eb]"
+                    }`}
+                  >
+                    {facing} Facing
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {filteredOptions.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveId(item.id)}
+                    className={`h-20 px-3 rounded-xl border text-sm md:text-base font-semibold leading-tight transition-all duration-300 ${
+                      activeId === item.id
+                        ? "bg-[#254f53] border-[#254f53] text-white shadow-[0_16px_28px_-18px_rgba(37,79,83,0.95)]"
+                        : "bg-[#f7ecdf] border-[#dbc8b4] text-[#2f4146] hover:bg-white"
+                    }`}
+                  >
+                    <span className="block">{item.area}</span>
+                    <span className={`block text-xs md:text-sm mt-0.5 ${activeId === item.id ? "text-white/85" : "text-[#6b7275]"}`}>
+                      {item.option}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={handleDownloadCostSheet}
+                className="mt-6 w-full h-14 rounded-xl bg-gradient-to-r from-[#b56d42] to-[#ca865d] text-white text-lg md:text-xl font-semibold inline-flex items-center justify-center gap-3 hover:brightness-105 transition-all"
+              >
+                Download Cost Sheet
+                <CircleArrowRight size={22} />
+              </button>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {(["East", "West"] as const).map((facing) => (
-                <button
-                  key={facing}
-                  onClick={() => onChangeFacing(facing)}
-                  className={`h-11 rounded-md text-sm md:text-base font-semibold transition-colors ${
-                    selectedFacing === facing
-                      ? "bg-[#2ea6de] text-white"
-                      : "bg-[#ffffff] text-[#1f2937] border border-[#cfd4dc] hover:bg-[#f8fbff]"
-                  }`}
-                >
-                  {facing} Facing
-                </button>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-[#5b5d61] border border-[#5b5d61]">
-              {filteredOptions.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveId(item.id)}
-                  className={`h-16 px-3 text-sm md:text-lg font-semibold leading-tight transition-colors ${
-                    activeId === item.id
-                      ? "bg-[#2ea6de] text-white"
-                      : "bg-[#2f3134] text-white hover:bg-[#3b3e42]"
-                  }`}
-                >
-                  <span className="block">{item.area}</span>
-                  <span className="block text-xs md:text-sm text-white/90 mt-0.5">{item.option}</span>
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={handleDownloadCostSheet}
-              className="mt-6 w-full h-14 bg-[#2ea6de] text-white text-xl font-semibold inline-flex items-center justify-center gap-3 hover:bg-[#239ad1] transition-colors"
-            >
-              Download Cost Sheet
-              <CircleArrowRight size={22} />
-            </button>
-          </div>
           </Reveal>
 
           <Reveal animation="right" delay={0.1}>
-            <div>
-            <h3 className="font-body text-3xl font-bold text-[#1f2937] mb-2 uppercase">
-              {selectedBhk} BHK - {selectedFacing} Facing
-            </h3>
-            <p className="text-[#4b5563] mb-5 font-medium">{activeResidence.option} • {activeResidence.area}</p>
-            <div className="bg-white border-2 border-[#d8d8d8] p-5">
-              <img
-                src={activeResidence.image}
-                alt={`${selectedBhk} BHK ${selectedFacing} Facing ${activeResidence.option}`}
-                className="w-full max-h-[420px] object-contain"
-                loading="lazy"
-              />
-            </div>
+            <div className="rounded-3xl border border-[#d7c7b4] bg-white/90 backdrop-blur-sm p-5 md:p-7 shadow-[0_18px_55px_-28px_rgba(43,49,64,0.45)]">
+              <h3 className="font-body text-2xl md:text-3xl font-bold text-[#203137] mb-2 uppercase tracking-[0.02em]">
+                {selectedBhk} BHK - {selectedFacing} Facing
+              </h3>
+              <p className="text-[#5b6669] mb-5 font-medium">{activeResidence.option} • {activeResidence.area}</p>
+              <div className="rounded-2xl bg-[#fbf7f1] border border-[#e2d3c1] p-4 md:p-5">
+                <img
+                  src={activeResidence.image}
+                  alt={`${selectedBhk} BHK ${selectedFacing} Facing ${activeResidence.option}`}
+                  className="w-full max-h-[420px] object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </Reveal>
         </div>
