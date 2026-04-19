@@ -13,6 +13,8 @@ import LocationSection from "@/components/LocationSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+import ChatWidget from "@/components/ChatWidget";
 
 const Index = () => (
   <>
@@ -31,6 +33,8 @@ const Index = () => (
     <FAQSection />
     <ContactSection />
     <Footer />
+    <ScrollToTop />
+    <ChatWidget />
   </>
 );
 
