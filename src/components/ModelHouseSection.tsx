@@ -59,7 +59,7 @@ const ModelHouseSection = () => {
 
   return (
     <>
-      <section id="modelhouse" className="py-20 md:py-22 px-6 overflow-hidden bg-[#fcf8f2]">
+      <section id="modelhouse" className="py-20 md:py-22 px-6 overflow-hidden">
         <div className="container mx-auto">
           <div className="text-center mb-14">
             <Reveal animation="up">

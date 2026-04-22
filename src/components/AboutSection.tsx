@@ -13,7 +13,7 @@ const AboutSection = () => {
   const { ref: lineRef, isVisible: lineVisible } = useInView();
 
   return (
-    <section id="about" className="py-20 md:py-22 px-6 overflow-hidden" style={{ background: "var(--section-gradient)" }}>
+    <section id="about" className="py-20 md:py-22 px-6 overflow-hidden">
       <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left column */}
         <div>

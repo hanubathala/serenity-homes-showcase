@@ -77,10 +77,7 @@ const ResidencesSection = () => {
     <section
       id="residences"
       className="py-20 md:py-22 px-6 overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(900px 420px at 0% 0%, rgba(158,120,89,0.16), transparent 60%), radial-gradient(900px 420px at 100% 100%, rgba(28,77,68,0.16), transparent 60%), linear-gradient(180deg, #f7f1e8 0%, #efe4d4 100%)",
-      }}
+     
     >
       <div className="container mx-auto max-w-6xl">
         <Reveal animation="up">

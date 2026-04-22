@@ -40,7 +40,7 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-20 md:py-22 px-6 overflow-hidden bg-[#fff9f1] border-t border-[#eadfcd]">
+  <section id="faq" className="py-20 md:py-22 px-6 overflow-hidden  border-t border-[#eadfcd]">
     <div className="container mx-auto max-w-4xl">
       <div className="text-center mb-10">
         <Reveal animation="up">
